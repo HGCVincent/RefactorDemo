@@ -1,8 +1,8 @@
 package gildedRose;
 
-public class AgedBrieItemStrategy extends Item {
+public class AgedBrieItem extends Item {
 
-    public AgedBrieItemStrategy(String name, int sellIn, int quality) {
+    public AgedBrieItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 
