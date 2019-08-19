@@ -22,48 +22,16 @@ public class Item {
     void updateItemQuality() {
         switch (name){
             case "Aged Brie":
-                if (quality < 50){
-                    quality++;
-                }
-                sellIn--;
-                if (sellIn < 0){
-                    if (quality < 50){
-                        quality++;
-                    }
-                }
+                new AgedBrieItemStrategy().updateQuality(this);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                if (quality < 50){
-                    quality++;
-                    if (sellIn < 11){
-                        if (quality < 50){
-                            quality++;
-                        }
-                    }
-                    if (sellIn < 6){
-                        if (quality < 50){
-                            quality++;
-                        }
-                    }
-                }
-                sellIn--;
-                if (sellIn < 0){
-                    quality = 0;
-
-                }
+                new BackstageItemStrategy().updateQuality(this);
                 break;
             case "Sulfuras, Hand of Ragnaros":
+                new SulfuraItemStrategy().updateQuality(this);
                 break;
             default:
-                if (quality > 0){
-                    quality--;
-                }
-                sellIn--;
-                if (sellIn < 0){
-                    if (quality > 0){
-                        quality--;
-                    }
-                }
+                new NormalItemStrategy().updateQuality(this);
                 break;
         }
     }
