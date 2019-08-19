@@ -1,16 +1,17 @@
 package gildedRose;
 
-public class AgedBrieItemStrategy {
+public class AgedBrieItemStrategy extends Item {
 
-    public void updateQuality(Item item){
-        if (item.quality < 50){
-            item.quality++;
-        }
-        item.sellIn--;
-        if (item.sellIn < 0){
-            if (item.quality < 50){
-                item.quality++;
-            }
+    public AgedBrieItemStrategy(String name, int sellIn, int quality) {
+        super(name, sellIn, quality);
+    }
+
+    @Override
+    public void updateQuality(){
+        qualityLessThan50Handler();
+        sellIn--;
+        if (sellIn < 0){
+            qualityLessThan50Handler();
         }
     }
 }

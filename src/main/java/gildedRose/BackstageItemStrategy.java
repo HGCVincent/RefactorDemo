@@ -1,24 +1,23 @@
 package gildedRose;
 
-public class BackstageItemStrategy {
-    public void updateQuality(Item item){
-        if (item.quality < 50){
-            item.quality++;
-            if (item.sellIn < 11){
-                if (item.quality < 50){
-                    item.quality++;
-                }
+public class BackstageItemStrategy extends Item {
+    public BackstageItemStrategy(String name, int sellIn, int quality) {
+        super(name, sellIn, quality);
+    }
+
+    public void updateQuality(){
+        if (quality < 50){
+            quality++;
+            if (sellIn < 11){
+                qualityLessThan50Handler();
             }
-            if (item.sellIn < 6){
-                if (item.quality < 50){
-                    item.quality++;
-                }
+            if (sellIn < 6){
+                qualityLessThan50Handler();
             }
         }
-        item.sellIn--;
-        if (item.sellIn < 0){
-            item.quality = 0;
-
+        sellIn--;
+        if (sellIn < 0){
+            quality = 0;
         }
     }
 }
