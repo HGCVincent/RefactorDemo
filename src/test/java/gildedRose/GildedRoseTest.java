@@ -85,4 +85,13 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertEquals("Sulfuras, Hand of Ragnaros, 1, 50",gildedRose.items[0].toString());
     }
+
+    @Test
+    public void should_return_Other_negative_48_when_invoke_updateQuality_given_other_0_50() {
+        Item item = new Item("other", 0, 50);
+        Item[] items = {item};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("other, -1, 48", gildedRose.items[0].toString());
+    }
 }
