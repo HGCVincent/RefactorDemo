@@ -67,4 +67,13 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertEquals("Backstage passes to a TAFKAL80ETC concert, 10, 48",gildedRose.items[0].toString());
     }
+
+    @Test
+    public void should_return_Backstage___when_invoke_updateQuality_given_Backstage_9_47() {
+        Item item = new Item("Backstage passes to a TAFKAL80ETC concert",9,47);
+        Item[] items = {item};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Backstage passes to a TAFKAL80ETC concert, 8, 49",gildedRose.items[0].toString());
+    }
 }
