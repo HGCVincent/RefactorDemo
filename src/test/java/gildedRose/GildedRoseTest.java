@@ -76,4 +76,13 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertEquals("Backstage passes to a TAFKAL80ETC concert, 8, 49",gildedRose.items[0].toString());
     }
+
+    @Test
+    public void should_return_Sulfuras_0_49_when_invoke_updateQuality_given_Sulfuras_1_50() {
+        Item item = new Item("Sulfuras, Hand of Ragnaros",1,50);
+        Item[] items = {item};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Sulfuras, Hand of Ragnaros, 1, 50",gildedRose.items[0].toString());
+    }
 }
